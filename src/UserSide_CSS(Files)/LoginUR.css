@@ -1,0 +1,174 @@
+.LoginUR-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+  padding: 20px;
+}
+
+.LoginUR-formContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: #5a4634;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Left Form Section */
+.LoginUR-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.LoginUR-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #d2ad86;
+}
+
+.LoginUR-form input {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #d2ad86;
+  color: #5a4634;
+  box-sizing: border-box;
+  border: none;
+}
+
+.LoginUR-form button {
+  background-color: #d2ad86;
+  color: #5a4634;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+.LoginUR-form button:hover {
+  background: #5a4634;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}
+
+.LoginUR-linkContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.LoginUR-link {
+  color: #d2ad86;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.LoginUR-link:hover {
+  color: wheat;
+}
+
+/* Right Image Section */
+.LoginUR-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5a4634;
+}
+
+.LoginUR-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ------------------------------ */
+/* Responsive Design Section     */
+/* ------------------------------ */
+
+/* Tablets (≤ 768px) */
+@media (max-width: 768px) {
+  .LoginUR-formContainer {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .LoginUR-form {
+    padding: 30px 20px;
+  }
+
+  .LoginUR-form input,
+  .LoginUR-form button {
+    font-size: 15px;
+  }
+
+  .LoginUR-image {
+    padding: 10px 0;
+  }
+
+  .LoginUR-linkContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .LoginUR-link {
+    font-size: 15px;
+  }
+}
+
+/* Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .LoginUR-wrapper {
+    padding: 15px;
+    gap: 30px;
+  }
+
+  .LoginUR-form {
+    padding: 20px 15px;
+    gap: 12px;
+  }
+
+  .LoginUR-form input,
+  .LoginUR-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .LoginUR-form button {
+    font-size: 15px;
+  }
+
+  .LoginUR-link {
+    font-size: 14px;
+  }
+
+  .LoginUR-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 770px) {
+  .LoginUR-image{
+    display: none;
+  }}
+

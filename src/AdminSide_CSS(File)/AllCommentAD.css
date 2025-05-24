@@ -1,0 +1,36 @@
+.AllCommentAD-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.AllCommentAD-wrapper h1{
+  color: #5a4634 ;
+}
+
+.AllCommentAD-CommentList {
+  width: 95%;
+}
+
+.AllCommentAD-Comment {
+  background: #5a4634 ;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.AllCommentAD-commentPara1 {
+  text-align: left;
+  font-size: 17px;
+  font-weight: bold;
+  color: #d2ad86;
+}
+
+.AllCommentAD-commentPara2 {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  color: #d2ad86;
+}

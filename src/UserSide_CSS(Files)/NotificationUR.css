@@ -1,0 +1,29 @@
+.NotificationUR-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.NotificationUR-wrapper h1{
+    color: #5a4634 ;
+}
+
+.NotificationUR-notificationList {
+  width: 95%;
+}
+
+.NotificationUR-notification {
+  background: #5a4634 ;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.NotificationUR-notification p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #d2ad86;
+}
+

@@ -1,0 +1,64 @@
+/* Wrapper */
+.ListeningPDFUR-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+}
+
+/* Book Image Container */
+.ListeningPDFUR-listeningContainer {
+  background: #5a4634 ;
+  padding: 15px;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(1, 1, 1, 0.1);
+  width: 100%;
+  max-width: 700px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Audio Player */
+.ListeningPDFUR-audioPlayer {
+  width: 600px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+  .ListeningPDFUR-listeningContainer {
+    width: 90%;  /* Adjust width to fit smaller screens */
+    max-width: 600px;
+    height: auto; /* Allow height to adjust based on content */
+  }
+  
+  .ListeningPDFUR-audioPlayer {
+    width: 100%; /* Make the audio player responsive */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ListeningPDFUR-listeningContainer {
+    width: 100%;  /* Take full width of the screen */
+    padding: 10px;  /* Reduce padding on smaller screens */
+    height: 150px; /* Adjust height for smaller screens */
+  }
+  
+  .ListeningPDFUR-audioPlayer {
+    width: 100%;  /* Ensure audio player fits within the container */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ListeningPDFUR-listeningContainer {
+    width: 100%;  /* Make sure the container takes full width */
+    max-width: 500px; /* Limit width on very small screens */
+    height: 120px;  /* Reduce height for smaller screens */
+  }
+
+  .ListeningPDFUR-audioPlayer {
+    width: 100%;  /* Ensure the audio player doesn't overflow */
+  }
+}

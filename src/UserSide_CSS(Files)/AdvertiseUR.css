@@ -1,0 +1,154 @@
+.AdvertiseUR-wrapper {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: baseline; /* centers vertically */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #d2ad86; /* Light background for better visibility */
+}
+
+.AdvertiseUR-AdvertiseContainer {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  max-width: 500px;
+  width: 90%;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #5a4634;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.AdvertiseUR-AdvertiseContainer h1{
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.AdvertiseUR-IMG img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.AdvertiseUR-Details {
+  flex-grow: 1;
+}
+
+.AdvertiseUR-Details h3 {
+  text-align: center;
+  margin: 4px 0;
+  font-size: 20px;
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.AdvertiseUR-Details p {
+  text-align: left;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.AdvertiseUR-Details a {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #d2ad86;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.AdvertiseUR-AdvertiseContainer button{
+  background-color: #5a4634;
+  color: #d2ad86;
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin-left: 225px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+
+
+
+/* Small devices (phones, 320px to 480px) */
+@media (max-width: 480px) {
+  .AdvertiseUR-IMG img {
+    width: 100%;
+    height: auto;
+  }
+
+  .AdvertiseUR-AdvertiseContainer {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .AdvertiseUR-AdvertiseContainer button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .AdvertiseUR-Details h3,
+  .AdvertiseUR-Details p,
+  .AdvertiseUR-Details a {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
+/* Medium devices (tablets, 481px to 768px) */
+@media (max-width: 768px) {
+  .AdvertiseUR-IMG img {
+    width: 100%;
+    height: auto;
+  }
+
+  .AdvertiseUR-AdvertiseContainer {
+    width: 90%;
+    padding: 18px;
+  }
+
+  .AdvertiseUR-AdvertiseContainer button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .AdvertiseUR-Details h3,
+  .AdvertiseUR-Details p,
+  .AdvertiseUR-Details a {
+    font-size: 14px;
+  }
+}
+
+/* Large devices (laptops/desktops, 769px to 1200px)
+@media (max-width: 1200px) {
+  .AdvertiseUR-IMG img {
+    width: 100%;
+    height: auto;
+  }
+
+  .AdvertiseUR-AdvertiseContainer {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1201px) {
+  .AdvertiseUR-AdvertiseContainer {
+    max-width: 800px;
+  }
+
+  .AdvertiseUR-IMG img {
+    max-width: 100%;
+    height: auto;
+  }
+} */

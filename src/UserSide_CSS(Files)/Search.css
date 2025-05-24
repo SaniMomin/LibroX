@@ -1,0 +1,121 @@
+.SearchUR-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+/* Search Controls */
+.SearchUR-SearchContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.SearchUR-SearchContainer select,
+.SearchUR-SearchContainer input {
+  padding: 8px;
+  border-radius: 40px;
+  border: 2px solid #5a4634;
+  font-size: 16px;
+  background-color: #d2ad86;
+  color: #5a4634;
+  cursor: pointer;
+}
+
+.SearchUR-SearchContainer input {
+  width: 500px;
+}
+
+.SearchUR-SearchContainer button {
+  background-color: #5a4634;
+  color: #d2ad86;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.SearchUR-SearchContainer button:hover {
+  background-color: #d2ad86;
+  border: 2px solid #5a4634;
+  color: #5a4634;
+}
+
+/* Book List - Grid Layout */
+.SearchUR-bookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 50px;
+  max-width: 1000px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+/* Book Item */
+.SearchUR-book {
+  background: #e6cbae;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.SearchUR-book:hover {
+  /*(-10px)sign is for upword/(10px) for downword/(0) for no movement/(Y) is for Moves the element along the Y-axis(up and down)*/
+  transform: translateY(-10px);
+  background: #d2ad86;
+  border: 2px solid #5a4634;
+}
+
+/* Book Image */
+.SearchUR-book img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Book Price */
+.SearchUR-book p {
+  text-align: center;
+  font-weight: bold;
+  color: #5a4634;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.SearchUR-book strong {
+  text-align: center;
+  font-weight: bold;
+  color: #5a4634;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.SearchUR-LikeSold {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.SearchUR-LikeSold div{
+  color:#5a4634;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Loading Message */
+.SearchUR-SearchThing {
+  text-align: center;
+  color: #5a4634;
+  font-weight: bold;
+}

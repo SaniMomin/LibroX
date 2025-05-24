@@ -1,0 +1,63 @@
+.HomeAD-wrapper {
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.HomeAD-wrapper h1 {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  color: #5a4634 ;
+}
+
+.HomeAD-booklistContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.HomeAD-Book {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #5a4634 ;
+}
+
+.HomeAD-IMG img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.HomeAD-bookInfo {
+  flex-grow: 1;
+}
+
+.HomeAD-bookInfo p {
+  text-align: left;
+  margin: 4px 0;
+  font-size: 16px;
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.HomeAD-bookInfo button {
+  padding: 8px 16px;
+  background-color: #5a4634 ;
+  color: #d2ad86;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.HomeAD-bookInfo button:hover {
+  background-color: #d2ad86;
+  color: #5a4634 ;
+}

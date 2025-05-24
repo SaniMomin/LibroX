@@ -1,0 +1,64 @@
+.SubPaymentUR-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+  padding: 20px;
+}
+
+.SubPayment-formContainer {
+  background-color: #5a4634 ;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  border-radius: 12px;
+}
+
+.SubPayment-formContainer h1 {
+  color: #d2ad86;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.SubPayment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.SubPayment-form label {
+  font-weight: bold;
+  color: #d2ad86;
+}
+
+.SubPayment-form input {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  border: none;
+  box-sizing: border-box;
+}
+
+.SubPayment-form button {
+  width: 100%;
+  padding: 10px;
+  background: #d2ad86;
+  color: #5a4634 ;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+.SubPayment-form button:hover {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}

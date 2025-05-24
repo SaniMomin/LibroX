@@ -1,0 +1,130 @@
+.OrderDetAD-wrapper{
+    padding: 20px;
+    background-color: #d2ad86;
+    min-height: 100vh;
+  }
+  
+  .OrderDetAD-wrapper h1 {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    color: #5a4634 ;
+  }
+  
+  .OrderDetAD-orderlistContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .OrderDetAD-order {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #5a4634 ;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .OrderDetAD-order p {
+    text-align: left;
+    margin: 4px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #d2ad86;
+  }
+  
+  .OrderDetAD-order button {
+    padding: 8px 16px;
+    background-color: #d2ad86;
+    color: #5a4634 ;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 12%;
+  }
+  
+  .OrderDetAD-order button:hover {
+    background-color: #5a4634 ;
+    color: #d2ad86;
+    border: 2px solid #d2ad86;
+  }
+  
+
+
+
+  /* Medium Devices (Tablets and below) */
+@media (max-width: 468px) {
+  .OrderDetAD-order {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .OrderDetAD-order p {
+    font-size: 15px;
+  }
+
+  .OrderDetAD-order button {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Small Devices (Phones and below) */
+@media (max-width: 480px) {
+  .OrderDetAD-wrapper {
+    padding: 15px 10px;
+  }
+
+  .OrderDetAD-wrapper h1 {
+    font-size: 22px;
+  }
+
+  .OrderDetAD-order {
+    padding: 12px;
+    border-radius: 16px;
+    gap: 12px;
+  }
+
+  .OrderDetAD-order p {
+    font-size: 14px;
+  }
+
+  .OrderDetAD-order button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+/* ------------------------------
+   Medium Devices (768px - 1024px)
+--------------------------------- */
+@media (min-width: 468px) and (max-width: 1024px) {
+  .OrderDetAD-wrapper {
+    padding: 20px 30px; /* a bit more horizontal room */
+  }
+
+  .OrderDetAD-wrapper h1 {
+    font-size: 26px; /* slightly smaller heading */
+  }
+
+  .OrderDetAD-order {
+    gap: 20px; /* moderate spacing */
+    padding: 18px;
+    flex-wrap: wrap; /* allow elements to wrap if needed */
+  }
+
+  .OrderDetAD-order p {
+    font-size: 15px;
+  }
+
+  .OrderDetAD-order button {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}

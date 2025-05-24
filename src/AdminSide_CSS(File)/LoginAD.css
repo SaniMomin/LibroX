@@ -1,0 +1,69 @@
+/*--------------------------------LoginAD Component CSS-----------------------------------*/
+/* Center the login-wrapper */
+.LoginAD-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #d2ad86; /* Light background */
+}
+
+/* Login Form Container */
+.LoginAD-formContainer {
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  background-color: #5a4634 ;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.LoginAD-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.LoginAD-form h1{
+    color: #d2ad86;
+}
+
+.LoginAD-form label {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #d2ad86;
+}
+
+.LoginAD-form input {
+  width: 95%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+/* Button Styling */
+.LoginAD-form button {
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.LoginAD-form button:hover {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}

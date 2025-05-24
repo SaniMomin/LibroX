@@ -1,0 +1,204 @@
+.AdvertiseAD-wrapper {
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.AdvertiseAD-wrapper h1 {
+  font-weight: bold;
+  font-size: 32px;
+  text-align: center;
+  color: #5a4634;
+  margin-bottom: 20px;
+}
+
+/* Button Wrapper */
+.AdvertiseAD-AddAdvertice {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.AdvertiseAD-AddAdvertice button {
+  padding: 10px 20px;
+  background-color: #5a4634;
+  color: #d2ad86;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.AdvertiseAD-AddAdvertice button:hover {
+  background-color: #d2ad86;
+  color: #5a4634;
+  border: 2px solid #5a4634;
+}
+
+/* List Container */
+.AdvertiseAD-ADlistContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Advertise Card */
+.AdvertiseAD-Advertise {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #5a4634;
+  flex-wrap: wrap;
+}
+
+/* Image Styling */
+.AdvertiseAD-IMG img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+/* Text & Button Info */
+.AdvertiseAD-Info {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.AdvertiseAD-Info p {
+  text-align: left;
+  margin: 4px 0;
+  font-size: 16px;
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.AdvertiseAD-Info button {
+  padding: 8px 16px;
+  margin: 10px 10px 0 0;
+  background-color: #d2ad86;
+  color: #5a4634;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.AdvertiseAD-Info button:hover {
+  background-color: #5a4634;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}
+
+/* ===================
+   Deep Responsive Design
+   =================== */
+
+/* Small devices (phones <576px) */
+@media (max-width: 575.98px) {
+  .AdvertiseAD-wrapper {
+    padding: 10px;
+  }
+
+  .AdvertiseAD-wrapper h1 {
+    font-size: 22px;
+  }
+
+  .AdvertiseAD-Advertise {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .AdvertiseAD-IMG img {
+    width: 100%;
+    height: auto;
+  }
+
+  .AdvertiseAD-AddAdvertice {
+    justify-content: center;
+  }
+
+  .AdvertiseAD-AddAdvertice button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .AdvertiseAD-Info p {
+    font-size: 14px;
+  }
+
+  .AdvertiseAD-Info button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Medium devices (tablets ≥576px and <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .AdvertiseAD-wrapper h1 {
+    font-size: 24px;
+  }
+
+  .AdvertiseAD-Advertise {
+    flex-direction: column;
+  }
+
+  .AdvertiseAD-IMG img {
+    max-width: 100%;
+  }
+}
+
+/* Large devices (≥768px and <992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .AdvertiseAD-wrapper h1 {
+    font-size: 26px;
+  }
+
+  .AdvertiseAD-Advertise {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .AdvertiseAD-IMG img {
+    max-width: 45%;
+  }
+
+  .AdvertiseAD-Info {
+    max-width: 50%;
+  }
+}
+
+/* Extra-large devices (≥992px and <1200px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .AdvertiseAD-wrapper h1 {
+    font-size: 30px;
+  }
+}
+
+/* XXL devices (≥1200px) */
+@media (min-width: 1200px) {
+  .AdvertiseAD-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .AdvertiseAD-Advertise {
+    flex-direction: row;
+  }
+
+  .AdvertiseAD-IMG img {
+    max-width: 500px;
+  }
+}

@@ -1,0 +1,111 @@
+.WelcomeNavrbar-wrapper {
+  width: 100%;
+  height: 70px;
+  background-color: #5a4634;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.WelcomeNavrbar-menu {
+  max-width: 100%;
+  margin: auto;
+  padding: 15px;
+
+  /* Flex layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Navbar Menu */
+.WelcomeNavrbar-menu ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1050px;  /* large gap on desktop */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.WelcomeNavrbar-heading {
+  margin-left: auto;
+}
+
+/* Navbar Brand */
+.WelcomeNavrbar-heading strong {
+  color: #f39c12;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 0;
+}
+
+.WelcomeNavrbar-links {
+  display: flex;
+  gap: 40px;
+}
+
+/* Navbar Links */
+.WelcomeNavrbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.WelcomeNavrbar-links a:hover {
+  color: #f39c12;
+}
+
+/* --------- RESPONSIVE ----------- */
+
+/* Medium screens - reduce gap */
+@media (max-width: 1024px) {
+  .WelcomeNavrbar-menu ul {
+    gap: 300px;
+  }
+}
+
+/* Tablets and small desktops */
+@media (max-width: 768px) {
+  .WelcomeNavrbar-menu ul {
+    gap: 80px;
+  }
+  .WelcomeNavrbar-links {
+    gap: 20px;
+  }
+  .WelcomeNavrbar-links a {
+    font-size: 18px;
+  }
+  .WelcomeNavrbar-heading strong {
+    font-size: 22px;
+  }
+}
+
+/* Small screens - allow wrapping */
+@media (max-width: 480px) {
+  .WelcomeNavrbar-menu ul {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .WelcomeNavrbar-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .WelcomeNavrbar-links a {
+    font-size: 16px;
+  }
+  .WelcomeNavrbar-heading strong {
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px;
+  }
+}

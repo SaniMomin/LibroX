@@ -1,0 +1,47 @@
+.SessionError-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d2ad86;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .SessionError-box {
+    background-color: #5a4634 ;
+    color: #d2ad86;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .SessionError-box h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .SessionError-box p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+  
+  .SessionError-btn {
+    display: inline-block;
+    background-color: #d2ad86;
+    color: #5a4634 ;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .SessionError-btn:hover {
+    background-color: #5a4634 ;
+    color: #d2ad86;
+    border: 2px solid #d2ad86;
+  }
+  

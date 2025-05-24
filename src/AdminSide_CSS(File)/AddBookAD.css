@@ -1,0 +1,120 @@
+.addbookAD-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #d2ad86;
+    padding: 20px;
+  }
+  
+  .addbookAD-formContainer {
+    background-color: #5a4634 ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .addbookAD-formContainer h1{
+    color: #d2ad86;
+  }
+
+  .addbookAD-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .addbookAD-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #d2ad86;
+  }
+  
+  .addbookAD-form input,
+  .addbookAD-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color:  #d2ad86;
+    color: #5a4634 ;
+  }
+  
+  .addbookAD-form button{
+    background:#d2ad86;
+    color: #5a4634 ;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .addbookAD-form button:hover {
+    background: #5a4634 ;
+    color: #d2ad86;
+    border: 2px solid #d2ad86;
+  }
+
+
+
+
+  /* Medium Devices (Tablets and smaller) */
+@media (max-width: 768px) {
+  .addbookAD-formContainer {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .addbookAD-form input,
+  .addbookAD-form select,
+  .addbookAD-form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .addbookAD-formContainer h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+/* Small Devices (Phones and smaller) */
+@media (max-width: 480px) {
+  .addbookAD-wrapper {
+    padding: 10px;
+  }
+
+  .addbookAD-formContainer {
+    padding: 10px;
+    max-width: 100%;
+    border-radius: 6px;
+  }
+
+  .addbookAD-form {
+    gap: 10px;
+  }
+
+  .addbookAD-form label {
+    font-size: 14px;
+  }
+
+  .addbookAD-form input,
+  .addbookAD-form select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .addbookAD-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .addbookAD-formContainer h1 {
+    font-size: 20px;
+  }
+}

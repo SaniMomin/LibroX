@@ -1,0 +1,165 @@
+.WelcomeUR-wrapper {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+}
+
+.WelcomeUR-sectionOne,
+.WelcomeUR-sectionSecond,
+.WelcomeUR-sectionThird,
+.WelcomeUR-sectionFour,
+.WelcomeUR-sectionFive {
+  backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #5a4634 ;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #5a4634 ;
+}
+
+p {
+  text-align: center;
+  max-width: 700px;
+  margin: 10px auto;
+  line-height: 1.7;
+  color: #5a4634 ;
+}
+
+.WelcomeUR-exploreButton {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 28px;
+  background-color: #a8714c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.explore-button:hover {
+  background-color: #7b4c33;
+}
+
+/* Features */
+.WelcomeUR-featuresList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.WelcomeUR-feature {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex: 1 1 200px;
+  text-align: center;
+  font-weight: bold;
+  color: #5a4634 ;
+}
+
+/* Books */
+.WelcomeUR-bookList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 20px;
+}
+
+.WelcomeUR-book {
+  text-align: center;
+  max-width: 200px;
+  color: #5a4634 ;
+  border: 2px solid black;
+  padding: 15px;
+  background: antiquewhite;
+  width: 50%;
+  border-radius: 20px;
+}
+
+.WelcomeUR-book img {
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 70%;
+  object-fit: fill;
+}
+
+/* Testimonials */
+.WelcomeUR-testimonialList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.WelcomeUR-testimonial {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 5px solid #a8714c;
+  padding: 15px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #5a4634 ;
+}
+
+.WelcomeUR-testimonial span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Footer */
+.WelcomeUR-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #5a4634 ;
+  margin-top: 40px;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .WelcomeUR-featuresList,
+  .WelcomeUR-bookList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .WelcomeUR-feature,
+  .WelcomeUR-book {
+    width: 90%;
+  }
+}

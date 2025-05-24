@@ -1,0 +1,60 @@
+.UpdateAdvertiseAD-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #d2ad86;
+    padding: 20px;
+  }
+  
+  .UpdateAdvertiseAD-formContainer {
+    background-color: #5a4634 ;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .UpdateAdvertiseAD-formContainer h1{
+    color: #d2ad86;
+  }
+
+  .UpdateAdvertiseAD-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .UpdateAdvertiseAD-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #d2ad86;
+  }
+  
+  .UpdateAdvertiseAD-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color:  #d2ad86;
+    color: #5a4634 ;
+  }
+  
+  .UpdateAdvertiseAD-form button{
+    background:#d2ad86;
+    color: #5a4634 ;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .UpdateAdvertiseAD-form button:hover {
+    background: #5a4634 ;
+    color: #d2ad86;
+    border: 2px solid #d2ad86;
+  }

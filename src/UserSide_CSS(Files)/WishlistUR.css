@@ -1,0 +1,73 @@
+.WishlistUR-wrapper {
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.WishlistUR-wrapper h1 {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  color: #5a4634;
+}
+
+.WishlistUR-booklist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.WishlistUR-book {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #5a4634;
+  transition: transform 0.3s ease-in-out;
+}
+
+.WishlistUR-img img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.WishlistUR-bookDetail {
+  flex-grow: 1;
+}
+
+.WishlistUR-bookDetail p {
+  text-align: left;
+  margin: 4px 0;
+  font-size: 12px;
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.WishlistUR-bookDetail strong {
+  text-align: center;
+  font-weight: bold;
+  color: #d2ad86;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.WishlistUR-bookDetail button {
+  padding: 8px 16px;
+  background-color: #5a4634;
+  color: #d2ad86;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.WishlistUR-bookDetail button:hover {
+  background-color: #d2ad86;
+  color: #5a4634;
+}

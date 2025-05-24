@@ -1,0 +1,85 @@
+.SignupUR-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+  padding: 20px;
+}
+
+.SignupUR-formContainer {
+  background-color: #5a4634 ;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.SignupUR-formContainer h1 {
+  color: #d2ad86;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Form Styling */
+.SignupUR-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.SignupUR-form label {
+  font-weight: bold;
+  color: #d2ad86;
+}
+
+.SignupUR-form input,
+.SignupUR-form select {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  box-sizing: border-box;
+  border: none;
+}
+
+/* Button Styling */
+.SignupUR-form button {
+  width: 100%;
+  padding: 10px;
+  background: #d2ad86;
+  color: #5a4634 ;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+.SignupUR-form button:hover {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}
+
+/* Link */
+.SignupUR-LinksContainer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.SignupUR-Links {
+  color: #d2ad86;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.SignupUR-Links:hover {
+  color: wheat;
+}

@@ -1,0 +1,189 @@
+/* Wrapper Styling */
+.BookDetails-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+  padding: 20px;
+}
+
+/* Book Container */
+.BookDetails-Container {
+  background: #5a4634 ;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.BookDetails-ContainerTop {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left Section: Image + Actions */
+.BookDetails-leftSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.BookDetails-coverImage {
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.BookDetails-coverImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.BookDetails-actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.BookDetails-actionButtons button {
+  padding: 8px 16px;
+  border: none;
+  background:#d2ad86;
+  color: #5a4634 ;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.BookDetails-actionButtons button:hover {
+  background-color: #5a4634 ;
+  color: #d2ad86;
+  border:2px solid #d2ad86;
+}
+
+/* Right Section: Book Details */
+.BookDetails-rightSection {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  align-items: flex-start;
+}
+
+.BookDetails-rightSection p,
+.BookDetails-rightSection h3 {
+  margin: 0;
+  font-weight: bold;
+  color: #d2ad86;
+}
+
+.BookDetails-Button button{
+  margin: 10px;
+  width:80px;
+}
+
+.BookDetails-rightSection button {
+  padding: 10px;
+  margin-top: 10px;
+  background:#d2ad86;
+  color: #5a4634 ;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.BookDetails-rightSection button:hover {
+  background-color: #5a4634 ;
+  color: #d2ad86;
+  border:2px solid #d2ad86;
+}
+
+.BookDetails-rightSection .FaShoppingCart {
+  margin-right: 5px;
+}
+
+/* Bottom Section: Comments */
+.BookDetails-ContainerBottom {
+  margin-top: 30px;
+  background: #d2ad86;
+  border-radius: 10px;
+  padding: 20px;
+  color: #5a4634 ;
+}
+
+.BookDetails-ContainerBottom h3 {
+  margin-bottom: 10px;
+}
+
+.BookDetails-addcomment {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.BookDetails-addcomment input {
+  background: #d2ad86;
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #5a4634 ;
+  border-radius: 10px;
+}
+
+.BookDetails-addcomment button {
+  padding: 8px 12px;
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 40px;
+}
+
+.BookDetails-addcomment button:hover {
+  background: #d2ad86;
+  color: #5a4634 ;
+  border: 2px solid #5a4634 ;
+}
+
+.BookDetails-commentlist {
+  margin-top: 10px;
+}
+
+.BookDetails-comment {
+  background: wheat;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.BookDetails-comment p {
+  text-align: left;
+  margin: 2px 0;
+}
+
+.BookDetails-comment p:first-child {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.BookDetails-comment p:last-child {
+  font-size: 16px;
+}

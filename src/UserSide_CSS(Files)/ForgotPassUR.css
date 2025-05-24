@@ -1,0 +1,72 @@
+.ForgotPassUR-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #d2ad86; /* Light background for better visibility */
+}
+
+.ForgotPassUR-wrapper h1 {
+  color: #d2ad86;
+}
+/* Form Container */
+.ForgotPassUR-formContainer {
+  max-width: 400px;
+  width: 90%;
+  padding: 20px;
+  background-color: #5a4634 ;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ForgotPassUR-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Label Styling */
+.ForgotPassUR-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #d2ad86;
+  margin-bottom: 5px;
+}
+
+/* Input Field Styling */
+.ForgotPassUR-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+.ForgotPassUR-form button {
+  width: 100%;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.ForgotPassUR-form button:hover {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}

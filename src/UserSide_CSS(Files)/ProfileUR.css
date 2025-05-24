@@ -1,0 +1,227 @@
+/* Profile Wrapper */
+.ProfileUR-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+}
+
+/* Profile Container */
+.ProfileUR-ProfileContainer {
+  background: #5a4634  ;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 150px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ProfileUR-userDetails {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(74, 60, 49, 0.6); /* slightly more solid */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow:
+    0 0 20px rgba(209, 177, 141, 0.6), /* brighter outer glow */
+    inset 0 0 10px rgba(209, 177, 141, 0.3); /* stronger inner shine */
+  max-width: 700px;
+  margin: 20px auto;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.ProfileUR-Img img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #d2ad86;
+}
+
+.ProfileUR-Img p {
+  color: #d2ad86;
+  font-weight: bold;
+}
+
+.ProfileUR-logoutBTN {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProfileUR-logoutBTN button {
+  background: #d2ad86;
+  color: #5a4634 ;
+  width: fit-content;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.ProfileUR-logoutBTN button:hover {
+  background-color: #5a4634;
+  color: #d2ad86 ;
+  border: 2px solid #d2ad86;
+}
+
+.ProfileUR-Info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ProfileUR-Info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: #d2ad86;
+}
+
+/* Buttons */
+.ProfileUR-updateButtons button {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.ProfileUR-updateButtons button:hover {
+  background-color: #d2ad86;
+  color: #5a4634 ;
+}
+
+.ProfileUR-savedButtons button {
+  background: #5a4634 ;
+  color: #d2ad86;
+  border: none;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.ProfileUR-savedButtons button:hover {
+  background-color: #d2ad86;
+  color: #5a4634 ;
+}
+
+/* Loading Message */
+.loading-message {
+  font-size: 20px;
+  color: #d2ad86;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .ProfileUR-ProfileContainer {
+    max-width: 80%; /* Reduce width on smaller screens */
+    padding: 15px; /* Adjust padding */
+    border-radius: 120px;
+  }
+
+  .ProfileUR-userDetails {
+    max-width: 90%; /* Adjust width */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align the items */
+  }
+
+  .ProfileUR-Img img {
+    width: 100px; /* Adjust image size */
+    height: 100px; /* Adjust image size */
+  }
+
+  .ProfileUR-Info p {
+    font-size: 14px; /* Reduce font size for better fit */
+  }
+
+  .ProfileUR-updateButtons button,
+  .ProfileUR-savedButtons button {
+    font-size: 14px; /* Reduce button font size */
+    padding: 8px 12px; /* Adjust button size */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ProfileUR-ProfileContainer {
+    max-width: 90%; /* Further reduce width */
+    padding: 10px;
+    border-radius: 100px;
+  }
+
+  .ProfileUR-userDetails {
+    max-width: 95%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .ProfileUR-Img img {
+    width: 90px; /* Further reduce image size */
+    height: 90px; /* Further reduce image size */
+  }
+
+  .ProfileUR-Info p {
+    font-size: 12px; /* Further reduce font size */
+  }
+
+  .ProfileUR-updateButtons button,
+  .ProfileUR-savedButtons button {
+    font-size: 12px; /* Reduce font size for buttons */
+    padding: 8px 10px; /* Adjust button size */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .ProfileUR-ProfileContainer {
+    max-width: 100%; /* Full width for very small screens */
+    padding: 8px;
+    border-radius: 80px;
+  }
+
+  .ProfileUR-userDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .ProfileUR-Img img {
+    width: 80px; /* Further reduce image size */
+    height: 80px; /* Further reduce image size */
+  }
+
+  .ProfileUR-Info p {
+    font-size: 10px; /* Adjust font size */
+  }
+
+  .ProfileUR-updateButtons button,
+  .ProfileUR-savedButtons button {
+    font-size: 10px; /* Adjust button font size */
+    padding: 6px 10px; /* Adjust button size */
+  }
+}

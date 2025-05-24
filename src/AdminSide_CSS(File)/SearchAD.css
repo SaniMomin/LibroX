@@ -1,0 +1,156 @@
+.SearchAD-wrapper {
+  text-align: center;
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.SearchAD-searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.SearchAD-searchContainer select,
+.SearchAD-searchContainer input {
+  padding: 8px;
+  border-radius: 40px;
+  border: 2px solid #5a4634 ;
+  font-size: 16px;
+  background-color: #d2ad86;
+  color: #5a4634 ;
+  cursor: pointer;
+}
+
+.SearchAD-searchContainer input {
+  width: 500px;
+}
+
+.SearchAD-searchContainer button {
+  background-color: #5a4634 ;
+  color: #d2ad86;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.SearchAD-searchContainer button:hover {
+  background-color: #d2ad86;
+  border: 2px solid #5a4634 ;
+  color: #5a4634 ;
+}
+
+.SearchAD-booklistContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SearchAD-Book {
+  display: flex;
+  background-color: #5a4634 ;
+  padding: 20px;
+  border-radius: 20px;
+  width: 95%;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.SearchAD-IMG img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.SearchAD-bookInfo {
+  text-align: left;
+}
+
+.SearchAD-bookInfo p {
+  text-align: left;
+  margin: 5px 0;
+  font-weight: bold;
+  color: #d2ad86;
+}
+
+.SearchAD-bookInfo button {
+  padding: 8px 16px;
+  background-color: #5a4634 ;
+  color: #d2ad86;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.SearchAD-bookInfo button:hover {
+  background-color: #d2ad86;
+  color: #5a4634 ;
+}
+
+/* ------------------------------
+   Small Devices (300px - 450px)
+--------------------------------- */
+@media (min-width: 300px) and (max-width: 450px) {
+  .SearchAD-wrapper {
+    padding: 15px 10px;
+  }
+
+  .SearchAD-searchContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .SearchAD-searchContainer select,
+  .SearchAD-searchContainer input {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .SearchAD-searchContainer input {
+    width: 100%; /* override fixed 500px width */
+  }
+
+  .SearchAD-searchContainer button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .SearchAD-Book {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .SearchAD-IMG img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .SearchAD-bookInfo {
+    width: 100%;
+  }
+
+  .SearchAD-bookInfo p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .SearchAD-bookInfo button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+}

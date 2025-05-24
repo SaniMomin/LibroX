@@ -1,0 +1,172 @@
+.UpdateSubAD-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #d2ad86;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .UpdateSubAD-wrapper h1 {
+    color: #5a4634 ;
+  }
+  
+  .UpdateSubAD-subscriptionList {
+    width: 95%;
+  }
+  
+  .UpdateSubAD-subscription {
+    background: #5a4634 ;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .UpdateSubAD-subscription p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #d2ad86;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  
+  .UpdateSubAD-updateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .UpdateSubAD-updateContainer select,
+  .UpdateSubAD-updateContainer input {
+    padding: 8px;
+    border-radius: 40px;
+    border: 2px solid #5a4634 ;
+    font-size: 16px;
+    background-color: #d2ad86;
+    color: #5a4634 ;
+    cursor: pointer;
+  }
+  
+  .UpdateSubAD-updateContainer input {
+    width: 500px;
+  }
+  
+  .UpdateSubAD-updateContainer button {
+    background-color: #5a4634 ;
+    color: #d2ad86;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .UpdateSubAD-updateContainer button:hover {
+    background-color: #d2ad86;
+    border: 2px solid #5a4634 ;
+    color: #5a4634 ;
+  }
+
+
+  /* ----------------------------------------
+   📱 Small Devices (300px - 450px)
+---------------------------------------- */
+@media (min-width: 300px) and (max-width: 450px) {
+  .UpdateSubAD-wrapper {
+    padding: 15px 10px;
+  }
+
+  .UpdateSubAD-updateContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .UpdateSubAD-updateContainer input,
+  .UpdateSubAD-updateContainer select,
+  .UpdateSubAD-updateContainer button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .UpdateSubAD-subscription {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .UpdateSubAD-subscription p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+}
+
+/* ----------------------------------------
+   📲 Medium Devices (451px - 767px)
+---------------------------------------- */
+@media (min-width: 451px) and (max-width: 767px) {
+  .UpdateSubAD-updateContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .UpdateSubAD-updateContainer input {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .UpdateSubAD-subscription {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .UpdateSubAD-subscription p {
+    font-size: 15px;
+    margin: 4px 0;
+  }
+}
+
+/* ----------------------------------------
+   💻 Tablet (768px - 1024px)
+---------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .UpdateSubAD-updateContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .UpdateSubAD-updateContainer input {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .UpdateSubAD-subscription {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .UpdateSubAD-subscription p {
+    font-size: 16px;
+    margin: 5px 10px;
+  }
+}
+
+/* ----------------------------------------
+   🖥️ Large Screens (1025px+)
+---------------------------------------- */
+@media (min-width: 1025px) {
+  .UpdateSubAD-updateContainer input {
+    width: 500px;
+  }
+
+  .UpdateSubAD-subscription {
+    flex-direction: row;
+  }
+
+  .UpdateSubAD-subscription p {
+    font-size: 16px;
+  }
+}

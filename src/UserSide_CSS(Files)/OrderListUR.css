@@ -1,0 +1,39 @@
+.OrderListUR-wrapper {
+  padding: 20px;
+  background-color: #d2ad86;
+  min-height: 100vh;
+}
+
+.OrderListUR-wrapper h1 {
+  font-weight: bold;
+  font-size: 28px;
+  text-align: center;
+  color: #5a4634 ;
+}
+
+.OrderListUR-OrdersList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.OrderListUR-Order {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #5a4634 ;
+}
+
+.OrderListUR-Order p {
+  margin: 4px 0;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  color: #d2ad86;
+}
+
+.OrderListUR-Order strong {
+  color: rgb(0, 255, 128);
+  font-size: 16px;
+}
