@@ -71,11 +71,13 @@ p {
   padding: 15px 20px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  flex: 1 1 200px;
+  /* flex: 1 1 200px; */
   text-align: center;
   font-weight: bold;
   color: #5a4634 ;
 }
+
+
 
 /* Books */
 .WelcomeUR-bookList {
@@ -152,14 +154,21 @@ p {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .WelcomeUR-featuresList,
+  /* .WelcomeUR-featuresList,
   .WelcomeUR-bookList {
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
-  .WelcomeUR-feature,
+  /* .WelcomeUR-feature, */
   .WelcomeUR-book {
     width: 90%;
   }
+}
+
+@media (min-width: 900px) {
+  .WelcomeUR-feature {
+    flex:1 1 200px
+  }
+
 }
