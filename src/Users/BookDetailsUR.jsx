@@ -166,7 +166,8 @@ const BookDetailsUR = () => {
     }
   };
 
-  const handleComment = async () => {
+  const handleComment = async (event) => {
+    event.preventDefault();
     try {
       await addDoc(collection(firebase_librox, "BKComment"), {
         bookid: bookDetails.Book_id,
