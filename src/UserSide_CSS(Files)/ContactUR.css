@@ -83,6 +83,7 @@
   height: auto;
   object-fit: contain;
   border-radius: 65%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* 📱 Small Devices (300px - 450px) */

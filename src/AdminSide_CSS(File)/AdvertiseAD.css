@@ -65,8 +65,9 @@
   max-width: 500px;
   height: auto;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 10px;
   flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Text & Button Info */
