@@ -128,7 +128,6 @@ const SignupUR = () => {
           <input
             type="file"
             accept="image/*"
-            capture="environment"
             onChange={(e) => setPhotoFile(e.target.files[0])}
             required
           />
