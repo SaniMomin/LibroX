@@ -1,7 +1,14 @@
 import React from "react";
 import "../UserSide_CSS(Files)/ContactUR.css";
+import { useNavigate } from "react-router-dom";
 
 const ContactUR = () => {
+  const navigate=useNavigate();
+
+  const handleReport=()=>{
+    navigate("/userDashboard/reportEmail");
+  };
+
   return (
     <div className="ContactUR-wrapper">
       <div className="ContactUR-container">
@@ -21,6 +28,7 @@ const ContactUR = () => {
           <p>
             <strong>Contact 3:</strong> 55555917253
           </p>
+          <button onClick={()=> handleReport()}>Email Us</button>
         </div>
         <div className="ContactUR-right">
           <img src="/images/ContactImg.png" alt="Contact" />

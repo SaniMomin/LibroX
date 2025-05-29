@@ -51,6 +51,25 @@
   color: #000;
 }
 
+.ContactUR-left button {
+  width: 175px;
+  padding: 10px;
+  background: #5a4634;
+  color: #d2ad86;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+.ContactUR-left button:hover{
+  background: #d2ad86;
+  color: #5a4634;
+  border: 2px solid #5a4634;
+}
+
 .ContactUR-right {
   flex: 1;
   display: flex;

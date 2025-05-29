@@ -1,0 +1,61 @@
+.ReportEmail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d2ad86;
+  padding: 20px;
+}
+
+.ReportEmail-formContainer {
+  padding: 20px;
+  background-color: #5a4634;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: left;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.ReportEmail-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ReportEmail-form label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #d2ad86;
+}
+
+.ReportEmail-form input,
+.ReportEmail-form textarea {
+  padding: 10px;
+  background-color: #d2ad86;
+  color: #5a4634;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ReportEmail-form button {
+  width: 100%;
+  padding: 10px;
+  background: #d2ad86;
+  color: #5a4634;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+.ReportEmail-form button:hover {
+  background: #5a4634;
+  color: #d2ad86;
+  border: 2px solid #d2ad86;
+}

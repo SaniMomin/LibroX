@@ -12,6 +12,7 @@ import ListeningPDFUR from './Users/ListeningPDFUR';
 import OrderBookUR from './Users/OrderBookUR';
 import AboutUR from './Users/AboutUR';
 import ContactUR from './Users/ContactUR';
+import ReportEmail from './Users/ReportEmail';
 import ProfileUR from './Users/ProfileUR';
 import UpdatePhotoUR from './Users/UpdatePhotoUR';
 import UpdateProfileUR from './Users/UpdateProfileUR';
@@ -40,6 +41,7 @@ import UpdateSubAD from './Admin/UpdateSubAD';
 import AdvertiseAD from './Admin/AdvertiseAD';
 import AddAdvertiseAD from './Admin/AddAdvertiseAD';
 import UpdateAdvertiseAD from './Admin/UpdateAdvertiseAD';
+
 
 
 function App() {
@@ -74,6 +76,7 @@ function App() {
         { path: 'orderBookUR', element: <OrderBookUR /> },
         { path: 'aboutUR', element: <AboutUR /> },
         { path: 'contactUR', element: <ContactUR /> },
+        { path: 'reportEmail', element: <ReportEmail /> },
         { path: 'profileUR', element: <ProfileUR /> },
         { path: 'updatePhotoUR', element: <UpdatePhotoUR /> },
         { path: 'updateProfileUR', element: <UpdateProfileUR /> },
