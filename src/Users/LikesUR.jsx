@@ -17,11 +17,11 @@ const LikesUR = () => {
   const [loading, setLoading] = useState(true);
   const [userDetails, setUserDetails] = useState();
   const [bookList, setBookList] = useState([]);
-  
+
   useEffect(() => {
     fetch_userdata();
   }, []);
-  
+
   const fetch_userdata = async () => {
     try {
       const refQuery = query(
@@ -76,8 +76,9 @@ const LikesUR = () => {
     }
   };
 
-  const handleRemove = async (bookID) => {
+  const handleRemove = async (bookID, bookDocID,bLike) => {
     try {
+      //removing unlike book bookID from userDetails Like Array
       let arr1 = userDetails.Like.filter((value) => {
         if (value !== bookID) {
           return value;
@@ -88,6 +89,12 @@ const LikesUR = () => {
         Like: arr1,
       });
       setUserDetails({ ...userDetails, Like: arr1 });
+      //removing 1 like from book Like
+      const refbookDoc = doc(firebase_librox, "Books", bookDocID);
+      await updateDoc(refbookDoc,{
+        Like:(bLike-1),
+      });
+      //removing unlike book details from bookList
       let arr2 = bookList.filter((value) => {
         if (value.Book_id !== bookID) {
           return value;
@@ -138,7 +145,7 @@ const LikesUR = () => {
                     ❤️ {book.Like} 🛒 {book.Sold}
                   </strong>
                 </p>
-                <button onClick={() => handleRemove(book.Book_id)}>
+                <button onClick={() => handleRemove(book.Book_id, book.id,book.Like)}>
                   Remove
                 </button>
                 <button onClick={() => handleBook(book.Book_id)}>Open</button>
