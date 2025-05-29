@@ -15,35 +15,35 @@ const OrderBookUR = () => {
   const handleOrder = async (e) => {
     e.preventDefault();
     try {
-      const ans=window.confirm("Are you sure,you want to place order!");
-      if(ans===true){
-      const refDoc = doc(firebase_librox, "Books", bookDet.id);
-      await updateDoc(refDoc, {
-        Remaining: bookDet.Remaining - quantity,
-        Sold: bookDet.Sold + quantity,
-      });
+      const ans = window.confirm("Are you sure,you want to place order!");
+      if (ans === true) {
+        const refDoc = doc(firebase_librox, "Books", bookDet.id);
+        await updateDoc(refDoc, {
+          Remaining: bookDet.Remaining - quantity,
+          Sold: bookDet.Sold + quantity,
+        });
 
-      await addDoc(collection(firebase_librox, "Orders"), {
-        user_id: userDet.UID,
-        username: userDet.Name,
-        contact: userDet.Phone,
-        address: userDet.Address,
-        book: bookDet.Name,
-        quantity: quantity,
-        total: totalPrice,
-        delivered: "not Confirm",
-        order_date: Date.now(),
-      });
-      toast.success("Order Placed!");
+        await addDoc(collection(firebase_librox, "Orders"), {
+          user_id: userDet.UID,
+          username: userDet.Name,
+          contact: userDet.Phone,
+          address: userDet.Address,
+          book: bookDet.Name,
+          quantity: quantity,
+          total: totalPrice,
+          delivered: "not Confirm",
+          order_date: Date.now(),
+        });
+        toast.success("Order Placed!");
 
-      setTimeout(() => {
-        navigate(-1);
-      }, 1500);
-    }else{
-      setTimeout(() => {
-        navigate(-1);
-      }, 1500);
-    }
+        setTimeout(() => {
+          navigate(-1);
+        }, 1500);
+      } else {
+        setTimeout(() => {
+          navigate(-1);
+        }, 1500);
+      }
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
     }
