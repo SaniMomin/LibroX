@@ -168,7 +168,7 @@ const AddBookAD = () => {
 
           <label htmlFor="price">Price(Delivery)</label>
           <input
-            type="numbers"
+            type="number"
             onChange={(e) => setPrice(Number(e.target.value))}
             required
           />
