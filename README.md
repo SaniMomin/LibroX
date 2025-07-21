@@ -60,19 +60,19 @@ LibroX/
 ---
 
 ## 📦 Installation Instructions
-  1) **Clone the repository**
-     ```bash
-     git clone https://github.com/SaniMomin/LibroX.git
-     cd LibroX
-  2) **Install dependencies**
-     npm install
-  3) **Set up Firebase**
-     - Create a file src/firebase/firebaseConfig.js
-     - Add your Firebase credentials.
-  4) **Start the development server**
-     npm start
-  5) **Open in browser:**
-     [npm start](http://localhost:3000)
+1) **Clone the repository**
+   ```bash
+   git clone https://github.com/SaniMomin/LibroX.git
+   cd LibroX
+2) **Install dependencies**
+   npm install
+3) **Set up Firebase**
+   - Create a file src/firebase/firebaseConfig.js
+   - Add your Firebase credentials.
+4) **Start the development server**
+   npm start
+5) **Open in browser:**
+   [npm start](http://localhost:3000)
 
 ---
 
@@ -81,9 +81,9 @@ LibroX/
 ---
 
 ## 👤 Author 
-  - **Sani Momin**
-  - 📧 wdev.sani@gmail.com
-  - 💼 [GitHub Profile](https://github.com/SaniMomin)
+- **Sani Momin**
+- 📧 wdev.sani@gmail.com
+- 💼 [GitHub Profile](https://github.com/SaniMomin)
 
 ---
 
@@ -94,6 +94,6 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 ---
 
 ## 🙌 Acknowledgements
-  - [Firebase](https://firebase.google.com/)
-  - [React](https://reactjs.org/)
-  - [Vercel](https://vercel.com/)
+- [Firebase](https://firebase.google.com/)
+- [React](https://reactjs.org/)
+- [Vercel](https://vercel.com/)
