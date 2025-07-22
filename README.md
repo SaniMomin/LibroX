@@ -76,10 +76,6 @@ LibroX/
 
 ---
 
-## 📸 Screenshots 
-
----
-
 ## 👤 Author 
 - **Sani Momin**
 - 📧 wdev.sani@gmail.com
