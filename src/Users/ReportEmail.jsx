@@ -35,9 +35,9 @@ const ReportEmail = () => {
   const handleReport = (event) => {
     event.preventDefault();
 
-    const serviceId = "service_co0tfyx";
-    const templateId = "template_6iqwflk";
-    const publicId = "ZVj6uyiIQ4GMM7s6e";
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICEID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
+    const publicId = process.env.REACT_APP_EMAILJS_PUBLICID;
 
     const templateParam = {
       user_name: userDetails.Name,

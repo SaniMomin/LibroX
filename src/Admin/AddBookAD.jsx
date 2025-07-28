@@ -31,7 +31,7 @@ const AddBookAD = () => {
         newCode += characters[randomIndex];
       }
 
-      const fileStack = client.init("ATuYVTP9T1a7cWnFl3uUAz");
+      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
       const filePhoto = await fileStack.upload(photoFile);
       const filePDF = await fileStack.upload(pdfFile);
       const fileAudio = await fileStack.upload(audioFile);

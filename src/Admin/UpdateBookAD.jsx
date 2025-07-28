@@ -10,7 +10,7 @@ const UpdateBookAD = () => {
   const location = useLocation();
   const [bookDetails, setBookDetails] = useState(location.state);
   const navigate = useNavigate();
-  const fileStack = client.init("ATuYVTP9T1a7cWnFl3uUAz");
+  const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
 
   const handleUpdate = async (event) => {
     event.preventDefault();

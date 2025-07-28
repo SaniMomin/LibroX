@@ -25,7 +25,7 @@ const AddAdvertiseAD = () => {
         duration: 3000,
       });
 
-      const fileStack = client.init("ATuYVTP9T1a7cWnFl3uUAz");
+      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
       const filePhoto = await fileStack.upload(image);
       await addDoc(collection(firebase_librox, "AllAdvertise"), {
         ImageURL: filePhoto.url,
