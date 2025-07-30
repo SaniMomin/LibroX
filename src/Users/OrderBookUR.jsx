@@ -11,10 +11,13 @@ const OrderBookUR = () => {
   const { userDet, bookDet } = location.state;
   const [totalPrice, settotalPrice] = useState(0);
   const [quantity, setQuantity] = useState();
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleOrder = async (e) => {
     e.preventDefault();
     try {
+      setIsUploading(true); // disable button
+
       const ans = window.confirm("Are you sure,you want to place order!");
       if (ans === true) {
         const refDoc = doc(firebase_librox, "Books", bookDet.id);
@@ -36,16 +39,19 @@ const OrderBookUR = () => {
         });
         toast.success("Order Placed!");
 
+        setIsUploading(false); // enable button
         setTimeout(() => {
           navigate(-1);
         }, 1500);
       } else {
+        setIsUploading(false); // enable button
         setTimeout(() => {
           navigate(-1);
         }, 1500);
       }
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -91,7 +97,9 @@ const OrderBookUR = () => {
           />
           <label htmlFor="totalPrice">Total Price</label>
           <input type="number" value={totalPrice} readOnly />
-          <button type="submit">Place Order</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Ordering..." : "Order"}
+          </button>
         </form>
       </div>
     </div>

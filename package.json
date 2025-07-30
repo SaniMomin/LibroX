@@ -6,7 +6,6 @@
     "@emailjs/browser": "^4.4.1",
     "cra-template": "1.2.0",
     "filestack-js": "^3.37.5",
-    "filestack-react": "^5.0.0",
     "firebase": "^11.2.0",
     "openai": "^4.85.4",
     "react": "^18.2.0",

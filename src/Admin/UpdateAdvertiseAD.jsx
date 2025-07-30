@@ -9,23 +9,25 @@ const UpdateAdvertiseAD = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [adsDetails, setAdsDetails] = useState(location.state);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      toast("Data is Updating...", {
-        duration: 1000,
-      });
+      setIsUploading(true); // disable button
+
       const refDoc = doc(firebase_librox, "AllAdvertise", adsDetails.id);
       await updateDoc(refDoc, adsDetails);
 
       toast.success("Data is Updated!");
+      setIsUploading(false); // enable button
 
       setTimeout(() => {
         navigate(-1);
       }, 2000);
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -115,7 +117,9 @@ const UpdateAdvertiseAD = () => {
             }
           />
 
-          <button type="submit">Update</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Change"}
+          </button>
         </form>
       </div>
     </div>

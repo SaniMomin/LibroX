@@ -17,18 +17,37 @@ const AddAdvertiseAD = () => {
   const [pricePaid, setPricePaid] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const addAdvertise = async (event) => {
     event.preventDefault();
     try {
-      toast("Advertise is Adding...", {
-        duration: 3000,
-      });
+      setIsUploading(true); // disable button
 
-      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
-      const filePhoto = await fileStack.upload(image);
+      // IMAGE
+      const data1 = new FormData();
+      data1.append("file", image);
+      data1.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+      const res1 = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: data1,
+        }
+      );
+      const uploadedImageURL = await res1.json();
+      if (!uploadedImageURL.secure_url) {
+        toast.error("Error image is not upload try again after some time.");
+        setIsUploading(false); // enable button
+        return;
+      }
+
+      // Saved data to firebase in AllAdvertise Collection
       await addDoc(collection(firebase_librox, "AllAdvertise"), {
-        ImageURL: filePhoto.url,
+        ImageURL: uploadedImageURL.secure_url,
         Title: title,
         TargetUrl: targetUrl,
         Description: description,
@@ -39,12 +58,14 @@ const AddAdvertiseAD = () => {
         EndDate: endDate,
       });
       toast.success("Adveritse is Added!");
+      setIsUploading(false); // enable button
 
       setTimeout(() => {
         navigate(-1);
       }, 1500);
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -65,69 +86,71 @@ const AddAdvertiseAD = () => {
       <div className="AddAdvertiseAD-formContainer">
         <h1>Add Advertise</h1>
         <form onSubmit={addAdvertise} className="AddAdvertiseAD-form">
-          <label htmlFor="Image">Image</label>
+          <label htmlFor="Image">Image *</label>
           <input
             type="file"
             onChange={(e) => setImage(e.target.files[0])}
             required
           />
 
-          <label htmlFor="Title">Title</label>
+          <label htmlFor="Title">Title *</label>
           <input
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             required
           />
 
-          <label htmlFor="TargetUrl">TargetUrl</label>
+          <label htmlFor="TargetUrl">TargetUrl *</label>
           <input
             type="text"
             onChange={(e) => setTargetUrl(e.target.value)}
             required
           />
 
-          <label htmlFor="Description">Description</label>
+          <label htmlFor="Description">Description *</label>
           <textarea
             onChange={(e) => setDescription(e.target.value)}
             required
             rows={7}
           />
 
-          <label htmlFor="AdvertiserName">AdvertiserName</label>
+          <label htmlFor="AdvertiserName">AdvertiserName *</label>
           <input
             type="text"
             onChange={(e) => setAdvertiserName(e.target.value)}
             required
           />
 
-          <label htmlFor="AdvertiserContact">AdvertiserContact</label>
+          <label htmlFor="AdvertiserContact">AdvertiserContact *</label>
           <input
             type="number"
             onChange={(e) => setAdvertiserContact(e.target.value)}
             required
           />
 
-          <label htmlFor="PricePaid">PricePaid</label>
+          <label htmlFor="PricePaid">PricePaid *</label>
           <input
             type="number"
             onChange={(e) => setPricePaid(Number(e.target.value))}
             required
           />
 
-          <label htmlFor="StartDate">StartDate</label>
+          <label htmlFor="StartDate">StartDate *</label>
           <input
             type="date"
             onChange={(e) => setStartDate(e.target.value)}
             required
           />
 
-          <label htmlFor="EndDate">EndDate</label>
+          <label htmlFor="EndDate">EndDate *</label>
           <input
             type="date"
             onChange={(e) => setEndDate(e.target.value)}
             required
           />
-          <button type="submit">ADD ADVERTISE</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Upload"}
+          </button>
         </form>
       </div>
     </div>

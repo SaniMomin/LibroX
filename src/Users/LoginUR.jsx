@@ -9,12 +9,17 @@ const LoginUR = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+
   const checkAd = async (event) => {
     event.preventDefault();
+
+    setIsUploading(true); // disable button
 
     await signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
         localStorage.setItem("id", res.user.uid);
+        setIsUploading(false); // enable button
         setTimeout(() => {
           navigate("/userDashboard/homeUR");
         }, 1500);
@@ -23,6 +28,8 @@ const LoginUR = () => {
         if (e.code === "auth/invalid-credential")
           toast.error("Wrong Email or Password.");
         else toast.error(e.message || "An Error Occured.");
+        
+        setIsUploading(false); // enable button
       });
   };
 
@@ -65,7 +72,9 @@ const LoginUR = () => {
             </Link>
           </div>
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Loggging..." : "Login"}
+          </button>
         </form>
         <div className="LoginUR-image">
           <img src="/images/loginUR_image.jpg" alt="Login" />

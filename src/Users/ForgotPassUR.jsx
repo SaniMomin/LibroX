@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { auth } from "../FireBase";
 import { sendPasswordResetEmail } from "firebase/auth";
 import "../UserSide_CSS(Files)/ForgotPassUR.css";
@@ -6,15 +6,23 @@ import toast, { Toaster } from "react-hot-toast";
 
 const ForgotPassUR = () => {
   const [email, setEmail] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const formRef = useRef(null);
 
-  const changePass = async (e) => {
-    e.preventDefault();
+  const changePass = async (event) => {
+    event.preventDefault();
+    setIsUploading(true); // disable button
     await sendPasswordResetEmail(auth, email)
       .then(() => {
         toast.success("Password Reset email send!");
+        setIsUploading(false); // enable button
+        
+        setEmail("");
+        formRef.current.reset();
       })
       .catch((e) => {
         toast.error(e.message || "Something went wrong!");
+        setIsUploading(false); // enable button
       });
   };
 
@@ -34,14 +42,16 @@ const ForgotPassUR = () => {
       />
       <div className="ForgotPassUR-formContainer">
         <h1>Forgot Password</h1>
-        <form onSubmit={changePass} className="ForgotPassUR-form">
+        <form onSubmit={changePass} ref={formRef} className="ForgotPassUR-form">
           <label htmlFor="email">Email</label>
           <input
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="submit">Confirm</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Change"}
+          </button>
         </form>
       </div>
     </div>

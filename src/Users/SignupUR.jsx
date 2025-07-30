@@ -5,7 +5,6 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import "../UserSide_CSS(Files)/SignupUR.css";
 import toast, { Toaster } from "react-hot-toast";
-import { client } from "filestack-react";
 
 const SignupUR = () => {
   const navigate = useNavigate();
@@ -18,19 +17,42 @@ const SignupUR = () => {
   const [address, setAddress] = useState("");
   const [photoFile, setPhotoFile] = useState("");
 
+  const [isUploading, setIsUploading] = useState(false);
+
   const savedData = async (event) => {
     event.preventDefault();
     try {
-      toast("Your Account is creating...", {
-        duration: 3000,
-      });
+      setIsUploading(true); // disable button
+
       const userAuth = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
-      const filePhoto = await fileStack.upload(photoFile);
+
+      const data = new FormData();
+      data.append("file", photoFile);
+      data.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      const uploadedImageURL = await res.json();
+
+      if (!uploadedImageURL.secure_url) {
+        toast.error("Error Photo is not upload try again after some time.");
+        setIsUploading(false); // enable button
+        return;
+      }
+
       await addDoc(collection(firebase_librox, "Users"), {
         UID: userAuth.user.uid,
         Email: email,
@@ -39,13 +61,16 @@ const SignupUR = () => {
         Gender: gender,
         Phone: phone,
         Address: address,
-        Photo_url: filePhoto.url,
+        Photo_url: uploadedImageURL.secure_url,
         Like: [],
         Wishlist: [],
         Subscription: false,
         Subscription_expire: null,
       });
       toast.success("Account Created!");
+
+      setIsUploading(false); // enable button
+
       setTimeout(() => {
         navigate("/loginUR");
       }, 1500);
@@ -53,6 +78,8 @@ const SignupUR = () => {
       if (e.code === "auth/email-already-in-use")
         toast.error("This email is already registered. Please log in instead.");
       else toast.error(e.message || "An error occurred");
+
+      setIsUploading(false); // enable button
     }
   };
 
@@ -111,8 +138,11 @@ const SignupUR = () => {
 
           <label htmlFor="phone">Phone</label>
           <input
-            type="number"
+            type="tel"
+            pattern="[0-9]{10}"
+            maxLength={10}
             onChange={(e) => setPhone(e.target.value)}
+            placeholder="Enter 10-digit phone number"
             required
           />
 
@@ -131,7 +161,9 @@ const SignupUR = () => {
             onChange={(e) => setPhotoFile(e.target.files[0])}
             required
           />
-          <button type="submit">Create Account</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Change"}
+          </button>
         </form>
         <div className="SignupUR-LinksContainer">
           <Link to="/loginUR" className="SignupUR-Links">

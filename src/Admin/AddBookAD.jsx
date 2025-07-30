@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { firebase_librox } from "../FireBase";
 import "../AdminSide_CSS(File)/AddBookAD.css";
-import { client } from "filestack-react";
 import toast, { Toaster } from "react-hot-toast";
 
 const AddBookAD = () => {
@@ -17,6 +16,8 @@ const AddBookAD = () => {
   const [bkAccess, setBkAccess] = useState("");
   const [bkQuantity, setBkQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const formRef = useRef(null);
+
   const addBook = async (e) => {
     e.preventDefault();
     try {
@@ -31,19 +32,75 @@ const AddBookAD = () => {
         newCode += characters[randomIndex];
       }
 
-      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
-      const filePhoto = await fileStack.upload(photoFile);
-      const filePDF = await fileStack.upload(pdfFile);
-      const fileAudio = await fileStack.upload(audioFile);
+      // IMAGE
+      const data1 = new FormData();
+      data1.append("file", photoFile);
+      data1.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+      const res1 = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: data1,
+        }
+      );
+      const uploadedImageURL = await res1.json();
+      if (!uploadedImageURL.secure_url) {
+        toast.error("Error image is not upload try again after some time.");
+        return;
+      }
 
+      // PDF
+      const data2 = new FormData();
+      data2.append("file", pdfFile);
+      data2.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+      const res2 = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/raw/upload`,
+        {
+          method: "POST",
+          body: data2,
+        }
+      );
+      const uploadedpdfURL = await res2.json();
+      if (!uploadedpdfURL.secure_url) {
+        toast.error("Error pdf is not upload try again after some time.");
+        return;
+      }
+
+      // AUDIO
+      const data3 = new FormData();
+      data3.append("file", audioFile);
+      data3.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+      const res3 = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/video/upload`,
+        {
+          method: "POST",
+          body: data3,
+        }
+      );
+      const uploadedAudioURL = await res3.json();
+      if (!uploadedAudioURL.secure_url) {
+        toast.error("Error audio is not upload try again after some time.");
+        return;
+      }
+
+      // Saved data to firebase in Books Collection
       await addDoc(collection(firebase_librox, "Books"), {
         Book_id: newCode,
         Name: bkname,
         Categary: bcat,
         Auther: auname,
-        photo_url: filePhoto.url,
-        pdf_url: filePDF.url,
-        audio_url: fileAudio.url,
+        photo_url: uploadedImageURL.secure_url,
+        pdf_url: uploadedpdfURL.secure_url,
+        audio_url: uploadedAudioURL.secure_url,
         Release_Date: rsdate,
         Language: lang,
         BooKAccess: bkAccess,
@@ -59,6 +116,24 @@ const AddBookAD = () => {
       });
 
       toast.success("Book is uploaded for Selling.");
+
+      // Reset all inputs
+      setBkname("");
+      setBcat("");
+      setAuname("Unknown");
+      setPhotoFile("");
+      setPdfFile("");
+      setAudioFile("");
+      setRsdate("Unknown");
+      setLang("");
+      setBkAccess("");
+      setBkQuantity("");
+      setPrice("");
+
+      // Reset the form (especially for file inputs)
+      if (formRef.current) {
+        formRef.current.reset();
+      }
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
     }
@@ -79,15 +154,15 @@ const AddBookAD = () => {
       />
       <div className="addbookAD-formContainer">
         <h1>Sell Books</h1>
-        <form onSubmit={addBook} className="addbookAD-form">
-          <label htmlFor="bkname">Name</label>
+        <form onSubmit={addBook} ref={formRef} className="addbookAD-form">
+          <label htmlFor="bkname">Name *</label>
           <input
             type="text"
             onChange={(e) => setBkname(e.target.value)}
             required
           />
 
-          <label htmlFor="categry">Categary</label>
+          <label htmlFor="categry">Categary *</label>
           <select
             onChange={(e) => {
               setBcat(e.target.value);
@@ -109,7 +184,7 @@ const AddBookAD = () => {
             placeholder="optional"
           />
 
-          <label htmlFor="BookPhoto">Upload Book Photo</label>
+          <label htmlFor="BookPhoto">Upload Book Photo *</label>
           <input
             type="file"
             accept="image/*"
@@ -117,7 +192,7 @@ const AddBookAD = () => {
             required
           />
 
-          <label htmlFor="BookPDF">Upload Book(PDF)</label>
+          <label htmlFor="BookPDF">Upload Book(PDF) *</label>
           <input
             type="file"
             accept="application/pdf"
@@ -125,7 +200,7 @@ const AddBookAD = () => {
             required
           />
 
-          <label htmlFor="BookAudion">Book Audio</label>
+          <label htmlFor="BookAudion">Book Audio *</label>
           <input
             type="file"
             accept="audio/*"
@@ -140,14 +215,14 @@ const AddBookAD = () => {
             placeholder="optional"
           />
 
-          <label htmlFor="lang">Language</label>
+          <label htmlFor="lang">Language *</label>
           <input
             type="text"
             onChange={(e) => setLang(e.target.value)}
             required
           />
 
-          <label htmlFor="BookAccess">Book Access</label>
+          <label htmlFor="BookAccess">Book Access *</label>
           <select
             onChange={(e) => {
               setBkAccess(e.target.value);
@@ -159,14 +234,14 @@ const AddBookAD = () => {
             <option value="Premium">Premium</option>
           </select>
 
-          <label htmlFor="quantity">Quantity(Delivery)</label>
+          <label htmlFor="quantity">Quantity(Delivery) *</label>
           <input
             type="number"
             onChange={(e) => setBkQuantity(Number(e.target.value))}
             required
           />
 
-          <label htmlFor="price">Price(Delivery)</label>
+          <label htmlFor="price">Price(Delivery) *</label>
           <input
             type="number"
             onChange={(e) => setPrice(Number(e.target.value))}

@@ -9,22 +9,27 @@ const UpdateProfileUR = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [userDetails, setUserDetails] = useState(location.state);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      toast("Data is Updating...");
+      setIsUploading(true); // disable button
+
       const refDoc = doc(firebase_librox, "Users", userDetails.id);
       await updateDoc(refDoc, userDetails);
       toast.success("Data is Updated!");
+      setIsUploading(false); // enable button
+
       setTimeout(() => {
         navigate(-1);
       }, 2000);
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
-  
+
   return (
     <div className="UpdateProfileUR-wrapper">
       <Toaster
@@ -84,7 +89,9 @@ const UpdateProfileUR = () => {
             }
             placeholder={userDetails.Address}
           />
-          <button type="submit">Update</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Change"}
+          </button>
         </form>
       </div>
     </div>

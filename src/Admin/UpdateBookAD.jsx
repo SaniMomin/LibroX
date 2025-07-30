@@ -10,7 +10,6 @@ const UpdateBookAD = () => {
   const location = useLocation();
   const [bookDetails, setBookDetails] = useState(location.state);
   const navigate = useNavigate();
-  const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -18,7 +17,7 @@ const UpdateBookAD = () => {
       toast("Data is Updating...", {
         duration: 1000,
       });
-      
+
       const refDoc = doc(firebase_librox, "Books", bookDetails.id);
       await updateDoc(refDoc, bookDetails);
 
@@ -72,8 +71,27 @@ const UpdateBookAD = () => {
             accept="image/*"
             onChange={async (e) => {
               const photo = e.target.files[0];
-              const photoFile = await fileStack.upload(photo);
-              setBookDetails({ ...bookDetails, photo_url: photoFile.url });
+              // IMAGE
+              const data1 = new FormData();
+              data1.append("file", photo);
+              data1.append(
+                "upload_preset",
+                process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+              );
+              const res1 = await fetch(
+                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+                {
+                  method: "POST",
+                  body: data1,
+                }
+              );
+              const uploadedImageURL = await res1.json();
+              if (!uploadedImageURL.secure_url) {
+                setBookDetails({
+                  ...bookDetails,
+                  photo_url: uploadedImageURL.secure_url,
+                });
+              }
             }}
           />
 
@@ -83,8 +101,24 @@ const UpdateBookAD = () => {
             accept="application/pdf"
             onChange={async (e) => {
               const pdf = e.target.files[0];
-              const pdfFile = await fileStack.upload(pdf);
-              setBookDetails({ ...bookDetails, pdf_url: pdfFile.url });
+              // PDF
+              const data2 = new FormData();
+              data2.append("file", pdf);
+              data2.append(
+                "upload_preset",
+                process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+              );
+              const res2 = await fetch(
+                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/raw/upload`,
+                {
+                  method: "POST",
+                  body: data2,
+                }
+              );
+              const uploadedpdfURL = await res2.json();
+              if (!uploadedpdfURL.secure_url) {
+                setBookDetails({ ...bookDetails, pdf_url: uploadedpdfURL.secure_url });
+              }
             }}
           />
 
@@ -94,8 +128,27 @@ const UpdateBookAD = () => {
             accept="audio/*"
             onChange={async (e) => {
               const audio = e.target.files[0];
-              const audioFile = await fileStack.upload(audio);
-              setBookDetails({ ...bookDetails, audio_url: audioFile.url });
+              // AUDIO
+              const data3 = new FormData();
+              data3.append("file", audio);
+              data3.append(
+                "upload_preset",
+                process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+              );
+              const res3 = await fetch(
+                `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/video/upload`,
+                {
+                  method: "POST",
+                  body: data3,
+                }
+              );
+              const uploadedAudioURL = await res3.json();
+              if (!uploadedAudioURL.secure_url) {
+                setBookDetails({
+                  ...bookDetails,
+                  audio_url: uploadedAudioURL.secure_url,
+                });
+              }
             }}
           />
 
@@ -121,7 +174,10 @@ const UpdateBookAD = () => {
           <input
             type="number"
             onChange={(e) =>
-              setBookDetails({ ...bookDetails, Remaining: Number(e.target.value) })
+              setBookDetails({
+                ...bookDetails,
+                Remaining: Number(e.target.value),
+              })
             }
             placeholder={bookDetails.Remaining}
           />

@@ -7,7 +7,7 @@ import {
   query,
   updateDoc,
 } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { firebase_librox } from "../FireBase";
 import toast, { Toaster } from "react-hot-toast";
 import "../AdminSide_CSS(File)/UpdateSubAD.css";
@@ -16,6 +16,8 @@ const UpdateSubAD = () => {
   const [subscriptionList, setSubscriptionList] = useState([]);
   const [subNo, setSubNo] = useState("");
   const [newPrice, setNewPrice] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const formRef = useRef(null);
 
   useEffect(() => {
     fetch_Sub();
@@ -41,6 +43,8 @@ const UpdateSubAD = () => {
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
+      setIsUploading(true); // disable button
+
       const arr1 = subscriptionList.map(async (sub) => {
         if (sub.SubNumber === subNo) {
           const refDoc = doc(firebase_librox, "Subscription", sub.id);
@@ -60,8 +64,15 @@ const UpdateSubAD = () => {
         expire_time: Date.now() + 7 * 24 * 60 * 60 * 1000,
       });
       toast.success("Price updated Successfully!");
+      setIsUploading(false); // enable button
+
+      setSubNo("");
+      setNewPrice("");
+      // Reset the form (especially for file inputs)
+      formRef.current.reset();
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -90,7 +101,7 @@ const UpdateSubAD = () => {
             </div>
           ))}
           <h2>Update Subscription Price:</h2>
-          <form onSubmit={handleUpdate} className="UpdateSubAD-updateContainer">
+          <form onSubmit={handleUpdate} ref={formRef} className="UpdateSubAD-updateContainer">
             <select onChange={(e) => setSubNo(Number(e.target.value))} required>
               <option value="">Select</option>
               <option value="1">Subscription no.1</option>
@@ -105,7 +116,9 @@ const UpdateSubAD = () => {
               placeholder="New Price"
               required
             />
-            <button type="submit">Set Price</button>
+            <button type="submit" disabled={isUploading}>
+            {isUploading ? "Changing..." : "Change"}
+          </button>
           </form>
         </div>
       ) : (

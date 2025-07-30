@@ -4,10 +4,13 @@ import { collection, where, query, getDocs } from "firebase/firestore";
 import { firebase_librox } from "../FireBase";
 import toast, { Toaster } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 const ReportEmail = () => {
+  const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState();
   const [message, setMessage] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     fetch_userDetails();
@@ -34,6 +37,7 @@ const ReportEmail = () => {
 
   const handleReport = (event) => {
     event.preventDefault();
+    setIsUploading(true); // disable button
 
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICEID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATEID;
@@ -43,6 +47,9 @@ const ReportEmail = () => {
       user_name: userDetails.Name,
       user_email: userDetails.Email,
       to_name: "LibroX Customer Support",
+      from_email: userDetails.Email,
+      from_name: userDetails.Name,
+      reply_to: userDetails.Email,
       message: message,
     };
 
@@ -50,9 +57,15 @@ const ReportEmail = () => {
       .send(serviceId, templateId, templateParam, publicId)
       .then((response) => {
         toast.success("Report Email send to LibroX Customer Support.");
+        setIsUploading(false); // enable button
+
+        setTimeout(() => {
+          navigate("/userDashboard/contactUR");
+        }, 1500);
       })
       .catch((e) => {
         toast.error("Error sending Email", e);
+        setIsUploading(false); // enable button
       });
   };
 
@@ -83,7 +96,9 @@ const ReportEmail = () => {
               onChange={(e) => setMessage(e.target.value)}
               required
             />
-            <button type="submit">Report</button>
+            <button type="submit" disabled={isUploading}>
+              {isUploading ? "Email Sending..." : "Report"}
+            </button>
           </form>
         </div>
       ) : (

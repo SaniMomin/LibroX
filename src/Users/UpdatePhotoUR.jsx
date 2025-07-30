@@ -11,28 +11,54 @@ const UpdatePhotoUR = () => {
   const location = useLocation();
   const [docID, setDocID] = useState(location.state);
   const [photoFile, setPhotoFile] = useState("");
-  
+  const [isUploading, setIsUploading] = useState(false);
+
   const updateImg = async (event) => {
     event.preventDefault();
     try {
-      toast("Photo is Changing...");
+      setIsUploading(true); // disable button
 
-      const fileStack = client.init(process.env.REACT_APP_FILESTACK_API_KEY);
-      const filePhoto = await fileStack.upload(photoFile);
+      const data = new FormData();
+      data.append("file", photoFile);
+      data.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      const uploadedImageURL = await res.json();
+
+      if (!uploadedImageURL.secure_url) {
+        toast.error("Error Photo is not changing try again after some time.");
+        setIsUploading(false); // enable button
+        return;
+      }
 
       const refDoc = doc(firebase_librox, "Users", docID);
       await updateDoc(refDoc, {
-        Photo_url: filePhoto.url,
+        Photo_url: uploadedImageURL.secure_url,
       });
+
       toast.success("Profile Photo Changed!");
+      setIsUploading(false); // enable button
+
       setTimeout(() => {
         navigate(-1);
       }, 2000);
+
     } catch (e) {
       toast.error(e.message || "SomeThing Went Wrong!");
+      setIsUploading(false); // enable button
     }
   };
-  
+
   return (
     <div className="UpdatePhotoUR-wrapper">
       <Toaster
@@ -58,7 +84,9 @@ const UpdatePhotoUR = () => {
             onChange={(e) => setPhotoFile(e.target.files[0])}
             required
           />
-          <button type="submit">Confirm</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Change"}
+          </button>
         </form>
       </div>
     </div>

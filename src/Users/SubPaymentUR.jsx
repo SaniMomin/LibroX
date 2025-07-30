@@ -17,7 +17,8 @@ const SubPaymentUR = () => {
   const location = useLocation();
   const [subDetails, setSubDetails] = useState(location.state);
   const [userDetails, setUserDetails] = useState();
-  
+  const [isUploading, setIsUploading] = useState(false);
+
   useEffect(() => {
     fetch_userData();
   }, []);
@@ -42,10 +43,13 @@ const SubPaymentUR = () => {
   const setPremium = async (event) => {
     event.preventDefault();
     try {
+      setIsUploading(true); // disable button
       const ans = window.confirm("Are you sure,you want to Buy Subscription!");
       if (ans === true) {
         if (userDetails.Subscription === true) {
           toast("Already have Subscription!");
+          
+          setIsUploading(false); // enable button
         } else {
           const refDoc = doc(firebase_librox, "Users", userDetails.id);
           await updateDoc(refDoc, {
@@ -54,17 +58,21 @@ const SubPaymentUR = () => {
           });
           toast.success("Premium Buy Successfully!");
 
+          setIsUploading(false); // enable button
           setTimeout(() => {
             navigate(-2);
           }, 2000);
         }
       } else {
+        setIsUploading(false); // enable button
+
         setTimeout(() => {
           navigate(-2);
         }, 1500);
       }
     } catch (e) {
       toast.error(e.message || "Some thing went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -93,7 +101,10 @@ const SubPaymentUR = () => {
           <input type="number" value={subDetails.Validity} />
           <label htmlFor="Price">Price</label>
           <input type="number" value={subDetails.Price} />
-          <button type="submit">Pay</button>
+
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Purchasing..." : "Purchase"}
+          </button>
         </form>
       </div>
     </div>
