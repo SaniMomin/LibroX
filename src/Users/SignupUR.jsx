@@ -162,7 +162,7 @@ const SignupUR = () => {
             required
           />
           <button type="submit" disabled={isUploading}>
-            {isUploading ? "Uploading..." : "Change"}
+            {isUploading ? "Creating Account..." : "Create Account"}
           </button>
         </form>
         <div className="SignupUR-LinksContainer">

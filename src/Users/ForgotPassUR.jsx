@@ -50,7 +50,7 @@ const ForgotPassUR = () => {
             required
           />
           <button type="submit" disabled={isUploading}>
-            {isUploading ? "Uploading..." : "Change"}
+            {isUploading ? "Email Sending..." : "Change"}
           </button>
         </form>
       </div>

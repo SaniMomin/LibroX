@@ -118,7 +118,7 @@ const UpdateAdvertiseAD = () => {
           />
 
           <button type="submit" disabled={isUploading}>
-            {isUploading ? "Uploading..." : "Change"}
+            {isUploading ? "Changing..." : "Change"}
           </button>
         </form>
       </div>
