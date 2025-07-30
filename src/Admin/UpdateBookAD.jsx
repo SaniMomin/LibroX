@@ -4,19 +4,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "../AdminSide_CSS(File)/UpdateBookAD.css";
 import { firebase_librox } from "../FireBase";
 import toast, { Toaster } from "react-hot-toast";
-import { client } from "filestack-react";
 
 const UpdateBookAD = () => {
   const location = useLocation();
   const [bookDetails, setBookDetails] = useState(location.state);
   const navigate = useNavigate();
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      toast("Data is Updating...", {
-        duration: 1000,
-      });
+      setIsUploading(true); // disable button
 
       const refDoc = doc(firebase_librox, "Books", bookDetails.id);
       await updateDoc(refDoc, bookDetails);
@@ -30,12 +28,14 @@ const UpdateBookAD = () => {
       });
 
       toast.success("Data is Updated!");
+      setIsUploading(false); // enable button
 
       setTimeout(() => {
         navigate(-1);
       }, 1500);
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
 
@@ -191,7 +191,9 @@ const UpdateBookAD = () => {
             placeholder={bookDetails.Price}
           />
 
-          <button type="submit">Update</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Changing..." : "Change"}
+          </button>
         </form>
       </div>
     </div>

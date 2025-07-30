@@ -16,14 +16,14 @@ const AddBookAD = () => {
   const [bkAccess, setBkAccess] = useState("");
   const [bkQuantity, setBkQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
   const formRef = useRef(null);
 
   const addBook = async (e) => {
     e.preventDefault();
     try {
-      toast("Book is uploading for selling...", {
-        duration: 3000,
-      });
+      setIsUploading(true); // disable button
+
       const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
       const length = 5;
       let newCode = "";
@@ -49,6 +49,7 @@ const AddBookAD = () => {
       const uploadedImageURL = await res1.json();
       if (!uploadedImageURL.secure_url) {
         toast.error("Error image is not upload try again after some time.");
+        setIsUploading(false); // enable button
         return;
       }
 
@@ -69,6 +70,7 @@ const AddBookAD = () => {
       const uploadedpdfURL = await res2.json();
       if (!uploadedpdfURL.secure_url) {
         toast.error("Error pdf is not upload try again after some time.");
+        setIsUploading(false); // enable button
         return;
       }
 
@@ -89,6 +91,7 @@ const AddBookAD = () => {
       const uploadedAudioURL = await res3.json();
       if (!uploadedAudioURL.secure_url) {
         toast.error("Error audio is not upload try again after some time.");
+        setIsUploading(false); // enable button
         return;
       }
 
@@ -116,6 +119,7 @@ const AddBookAD = () => {
       });
 
       toast.success("Book is uploaded for Selling.");
+      setIsUploading(false); // enable button
 
       // Reset all inputs
       setBkname("");
@@ -136,6 +140,7 @@ const AddBookAD = () => {
       }
     } catch (e) {
       toast.error(e.message || "Something went wrong!");
+      setIsUploading(false); // enable button
     }
   };
   return (
@@ -247,7 +252,9 @@ const AddBookAD = () => {
             onChange={(e) => setPrice(Number(e.target.value))}
             required
           />
-          <button type="submit">Sell Book</button>
+          <button type="submit" disabled={isUploading}>
+            {isUploading ? "Uploading..." : "Upload"}
+          </button>
         </form>
       </div>
     </div>

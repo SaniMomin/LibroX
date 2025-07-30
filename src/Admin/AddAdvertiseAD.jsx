@@ -1,4 +1,3 @@
-import { client } from "filestack-react";
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";

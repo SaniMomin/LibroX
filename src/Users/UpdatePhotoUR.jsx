@@ -1,4 +1,3 @@
-import { client } from "filestack-react";
 import { doc, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
