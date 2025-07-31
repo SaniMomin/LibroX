@@ -39,6 +39,7 @@ const AddBookAD = () => {
         "upload_preset",
         process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
       );
+      data1.append("folder", "librox_images");
       const res1 = await fetch(
         `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`,
         {
@@ -60,8 +61,9 @@ const AddBookAD = () => {
         "upload_preset",
         process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
       );
+      data2.append("folder", "librox_pdfs");
       const res2 = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/raw/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/auto/upload`,
         {
           method: "POST",
           body: data2,
@@ -81,6 +83,7 @@ const AddBookAD = () => {
         "upload_preset",
         process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
       );
+      data3.append("folder", "librox_audios");
       const res3 = await fetch(
         `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/video/upload`,
         {
