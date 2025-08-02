@@ -44,11 +44,10 @@ const ReportEmail = () => {
     const publicId = process.env.REACT_APP_EMAILJS_PUBLICID;
 
     const templateParam = {
-      user_name: userDetails.Name,
-      user_email: userDetails.Email,
       to_name: "LibroX Customer Support",
       from_email: userDetails.Email,
       from_name: userDetails.Name,
+      to_email: "mominsani022@gmail.com",
       reply_to: userDetails.Email,
       message: message,
     };
