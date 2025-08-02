@@ -24,12 +24,7 @@ const SignupUR = () => {
     try {
       setIsUploading(true); // disable button
 
-      const userAuth = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
+      //Upload Photo to Cloudinary
       const data = new FormData();
       data.append("file", photoFile);
       data.append(
@@ -53,6 +48,14 @@ const SignupUR = () => {
         return;
       }
 
+      // Create Auth
+      const userAuth = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      // Saved to Firestore
       await addDoc(collection(firebase_librox, "Users"), {
         UID: userAuth.user.uid,
         Email: email,
